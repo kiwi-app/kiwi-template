@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <img width="24" height="24" src="./public/kiwi.svg"> Kiwi template
 
-## Getting Started
+This is a [Kiwi](https://kiwi-admin.vercel.app/) template.
 
-First, run the development server:
+## Installation and initialization
+
+First, install the [Kiwi NextJS](https://www.npmjs.com/package/@kiwi-app/kiwi-nextjs) dependency
 
 ```bash
-npm run dev
+yarn add @kiwi-app/kiwi-nextjs
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm i @kiwi-app/kiwi-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+After that, initialize using the CLI
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npx kiwi init
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Nice! Now you can see your "kiwi" folders inside "app" grouped on "(kiwi)", right?
 
-## Learn More
+If you're using tailwind, add this content at your config file:
 
-To learn more about Next.js, take a look at the following resources:
+```javascript
+{
+  content: [
+    // ...your contents,
+    "./src/app/(kiwi)/**/*.tsx"
+  ],
+  // ...tailwind config
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+You need to configure two env vars which will be used by 'kiwi-nextjs' for intergrate with the admin.
 
-## Deploy on Vercel
+- NEXT_PUBLIC_KIWI_ADMIN_URL: https://kiwi-admin.vercel.app (or you can use your own kiwi admin url, soon 👀)
+- NEXT_PUBLIC_KIWI_API_KEY
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Kiwi API Key
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Make sure you've already configured the **NEXT_PUBLIC_KIWI_ADMIN_URL**.
+
+To get your **kiwi api key**, you should start your project (**at port 3000**, by default) and open the [admin](https://kiwi-admin.vercel.app).
+
+#### Step by step for api key creation
+![kiwi api key creation](docs/kiwi_api_key.gif)
